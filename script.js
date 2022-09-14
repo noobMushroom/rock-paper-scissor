@@ -20,7 +20,8 @@ const start = () => {
 }
 
 const onClickRPS = (square) => {
-    const score = getResult(square.value, opponent());  
+    const computerChoice= opponent()
+    const score = getResult(square.value, computerChoice);  
     scoreCal(score)
     total_score.innerHTML = `<img src="images/person.png"> ${player_score} ||  ${computer_score}  &nbsp <img src="images/computer.png" >`
     
@@ -31,7 +32,7 @@ const onClickRPS = (square) => {
         reset()
         return
     } else {
-        showResult(square.value, opponent(),score)
+        showResult(square.value, computerChoice,score)
         
     }
 
