@@ -22,6 +22,7 @@ const start = () => {
 const onClickRPS = (square) => {
     const score = getResult(square.value, opponent());  
     scoreCal(score)
+    total_score.innerHTML = `<img src="images/person.png"> ${player_score} ||  ${computer_score}  &nbsp <img src="images/computer.png" >`
     
     if (player_score === 5) {
         reset()
@@ -125,7 +126,7 @@ const showResult = (pChoice, compChoice, score) => {
 
 
     // display total score  in the screen of player and computer
-    total_score.innerHTML = `<img src="images/person.png"> ${player_score} ||  ${computer_score}  &nbsp <img src="images/computer.png" >`
+    // total_score.innerHTML = `<img src="images/person.png"> ${player_score} ||  ${computer_score}  &nbsp <img src="images/computer.png" >`
 }
 
 //shows result if player reaches to 5
@@ -149,11 +150,11 @@ const finalResult = (rounds) => {
 function reset() {
     result.innerHTML = ''
     choices.innerHTML = `${finalResult(round)}`
-    total_score.innerHTML = ''
+    // total_score.innerHTML = ''
     const endgame = document.createElement('button')
     endgame.classList.toggle('endGameBtn');
     endgame.textContent = "Reset the board"
-    total_score.appendChild(endgame)
+    finalResultDiv.appendChild(endgame)
     let endGameButton = document.querySelector('.endGameBtn')
     endGameButton.onclick = () => endGame()
     endgame.setAttribute('style', 'background:pink; border-radius: 3em; padding: .2em 1.3em; border: 2px solid #f95d9b;')
@@ -168,6 +169,7 @@ function endGame() {
     computer_score=0
     round=0
     roundDiv.innerHTML=''
+    finalResultDiv.innerHTML=''
     roundDiv.removeAttribute("style")
   }
 
