@@ -9,6 +9,8 @@ let player_score = 0;
 let tie = 0;
 let round = 0;
 
+
+
 const start = () => {
     let buttons = document.querySelectorAll('.btn')
 
@@ -18,6 +20,9 @@ const start = () => {
 }
 
 const onClickRPS = (square) => {
+    const score = getResult(square.value, opponent());  
+    scoreCal(score)
+    
     if (player_score === 5) {
         reset()
         return
@@ -25,7 +30,8 @@ const onClickRPS = (square) => {
         reset()
         return
     } else {
-        showResult(square.value, opponent())
+        showResult(square.value, opponent(),score)
+        
     }
 
 }
@@ -87,20 +93,36 @@ const scoreCal = (score) => {
 
 // it shows all the reuslt in the screen 
 
-const showResult = (pChoice, compChoice) => {
+const showResult = (pChoice, compChoice, score) => {
     round += 1;
+
+
     // it shows choices of players
     choices.innerHTML = ` <img src="images/person.png">: ${pChoice} |<img src="images/battle.png" > | ${compChoice}:  &nbsp <img src="images/computer.png" >`;
+
+
+
     // it return score from getResult function 
-    const score = getResult(pChoice, compChoice);
+    // let score = getResult(pChoice, compChoice);
+
+
+
     // it shows who won the round in display
     result.textContent = winner(score)
+
+
+
+
     // it shows the number of round in the display
     roundDiv.innerHTML = ` Round no: ${round}`
     roundDiv.setAttribute('style', 'background: pink; border-radius: 3em; padding: .2em 1.3em; border: 2px solid #f95d9b;')
 
+
+
     //calling scoreCal function to calculate total score of computer and player 
-    scoreCal(score)
+    // scoreCal(score)
+
+
 
     // display total score  in the screen of player and computer
     total_score.innerHTML = `<img src="images/person.png"> ${player_score} ||  ${computer_score}  &nbsp <img src="images/computer.png" >`
