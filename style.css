@@ -72,3 +72,9 @@
     align-items: center;
     font-size: 2em;
 }
+
+#finalResult{
+    display: flex;
+    flex-direction: column;
+
+}
