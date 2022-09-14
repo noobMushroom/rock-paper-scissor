@@ -103,11 +103,6 @@ const showResult = (pChoice, compChoice, score) => {
 
 
 
-    // it return score from getResult function 
-    // let score = getResult(pChoice, compChoice);
-
-
-
     // it shows who won the round in display
     result.textContent = winner(score)
 
@@ -118,15 +113,6 @@ const showResult = (pChoice, compChoice, score) => {
     roundDiv.innerHTML = ` Round no: ${round}`
     roundDiv.setAttribute('style', 'background: pink; border-radius: 3em; padding: .2em 1.3em; border: 2px solid #f95d9b;')
 
-
-
-    //calling scoreCal function to calculate total score of computer and player 
-    // scoreCal(score)
-
-
-
-    // display total score  in the screen of player and computer
-    // total_score.innerHTML = `<img src="images/person.png"> ${player_score} ||  ${computer_score}  &nbsp <img src="images/computer.png" >`
 }
 
 //shows result if player reaches to 5
