@@ -78,3 +78,13 @@
     flex-direction: column;
 
 }
+
+footer{
+    display: flex;
+    font-size: 1em;
+    height: 8vh;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+    font-weight: 900;
+}
