@@ -79,9 +79,13 @@ const winner = (result) => {
 const scoreCal = (score) => {
 
     if (score == 1) {
-        return player_score += 1
+        if (computer_score<=5){
+            return player_score+=1
+        }
     } else if (score == -1) {
-        return computer_score += 1
+        if(player_score<=5){
+            return computer_score+=1
+        }
     } else {
         return tie += 1
     }
