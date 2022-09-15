@@ -21,10 +21,10 @@ const onClickRPS = (square) => {
     let computerChoice= opponent()
     let score= getResult(square.value, computerChoice)
     scoreCal(score);
-    if (player_score === 5) {
+    if (player_score >= 5) {
         reset()
         return
-    } else if (computer_score === 5) {
+    } else if (computer_score >= 5) {
         reset()
         return
     } else {
@@ -112,7 +112,7 @@ const showResult = (pChoice, compChoice, score) => {
 //shows result if player reaches to 5
 
 const finalResult = (rounds) => {
-    if (player_score ===5) {
+    if (player_score >=5) {
         if (rounds <= 6) {
             return `<img src="images/person.png"> Hurray! you won in just ${rounds} rounds you are the champion you destroyed me`
         } else if (rounds <= 10) {
@@ -120,7 +120,7 @@ const finalResult = (rounds) => {
         } else {
             return `<img src="images/person.png"> Hurray! you won in ${rounds} rounds, congratulations`
         }
-    } else if (computer_score ===5) {
+    } else if (computer_score >=5) {
         return `<img src="images/computer.png" > computer won try again`
     }
 }
@@ -130,7 +130,7 @@ const finalResult = (rounds) => {
 function reset() {
     result.innerHTML = ''
     choices.innerHTML = `${finalResult(round)}`
-    total_score.innerHTML = ''
+    total_score.innerHTML = ``
     const endgame = document.createElement('button')
     endgame.classList.toggle('endGameBtn');
     endgame.textContent = "Reset the board"
